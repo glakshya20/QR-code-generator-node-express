@@ -8,6 +8,8 @@
 * JavaScript
 * Bootstrap
 
+```bash
+
 git clone https://github.com/glakshya20/QR-code-generator-node-express.git
 cd QR-code-generator-node-express 
 npm install
