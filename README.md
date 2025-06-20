@@ -6,7 +6,8 @@
 
 
 
-* React
+* NodeJs
+* ExpressJs
 * HTML
 * CSS
 * JavaScript
