@@ -11,11 +11,15 @@ document.getElementById('qr-form').addEventListener('submit', function (e) {
 		},
 		body: JSON.stringify({ id, price }) // ✅ FIXED
 	})
-		.then(response => response.blob())
-		.then(blob => {
-			const qrImage = document.createElement('img');
-			const qrImageUrl = URL.createObjectURL(blob);
-			qrImage.src = qrImageUrl;
+		.then(response => response.json())
+        .then(data => {
+	const qrImage = document.createElement('img');
+	qrImage.src = data.qr;
+
+	const qrResultDiv = document.getElementById('qr-result');
+	qrResultDiv.innerHTML = '';
+	qrResultDiv.appendChild(qrImage);
+})
 
 			const qrResultDiv = document.getElementById('qr-result');
 			qrResultDiv.innerHTML = '';
