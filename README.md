@@ -11,6 +11,9 @@ A full-stack web app that generates QR codes from product **ID** and **Price** i
 Users enter a product ID and price into the form, hit **Generate QR Code**, and instantly receive a scannable QR code — all powered by a REST API backend that processes the input and returns the QR image.
 
 ---
+<img width="556" height="711" alt="Screenshot 2026-04-20 183536" src="https://github.com/user-attachments/assets/a1d303b8-a5b6-4a3c-b35a-c141f4976476" />
+<img width="591" height="1280" alt="WhatsApp Image 2026-04-20 at 6 35 11 PM" src="https://github.com/user-attachments/assets/971ca952-5589-4d2e-b42e-fd3bacb12576" />
+
 
 ## ✨ Features
 
