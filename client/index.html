@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,20 +9,25 @@
 
 <body>
 	<h1>QR Code Generator</h1>
+
 	<form id="qr-form">
 		<div class="content">
 			<label for="qr-id" class="margin">ID:</label>
-			<input type="text" id="qr-id" class="qr-input" placeholder="Enter ID">
+			<input type="text" id="qr-id" class="qr-input" placeholder="Enter ID" required>
 		</div>
+
 		<div class="content">
 			<label for="qr-price">Price:</label>
-			<input type="text" id="qr-price" class="qr-input" placeholder="Enter Price">
+			<input type="text" id="qr-price" class="qr-input" placeholder="Enter Price" required>
 		</div>
+
+		<!-- ✅ FIX: keep type="submit" -->
 		<button type="submit" class="content">Generate QR Code</button>
 	</form>
-	<div id="qr-result">
-	</div>
+
+	<!-- ✅ QR result container -->
+	<div id="qr-result" style="margin-top: 20px;"></div>
+
 	<script src="script.js"></script>
 </body>
-
 </html>
