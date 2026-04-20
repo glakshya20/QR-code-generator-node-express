@@ -17,13 +17,13 @@ app.use(router);
 const clientPath = path.resolve(__dirname, '../client');
 app.use(express.static(clientPath));
 
-// Default route
+// Home route
 app.get('/', (req, res) => {
   res.sendFile(path.join(clientPath, 'index.html'));
 });
 
-// Fallback (important for routing)
-app.get('/:path(*)', (req, res) => {
+// ✅ FIXED fallback (works in Express 5)
+app.use((req, res) => {
   res.sendFile(path.join(clientPath, 'index.html'));
 });
 
