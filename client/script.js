@@ -9,15 +9,15 @@ document.getElementById('qr-form').addEventListener('submit', function (e) {
 		headers: {
 			'Content-Type': 'application/json',
 		},
-		body: JSON.stringify({ id, price })
+		body: JSON.stringify({ data: { id, price } }) // ✅ matches backend
 	})
-		.then(res => res.json())
-		.then(data => {
+		.then(res => res.blob()) // ✅ matches backend response
+		.then(blob => {
 			const qrResultDiv = document.getElementById('qr-result');
 			qrResultDiv.innerHTML = '';
 
 			const img = document.createElement('img');
-			img.src = data.qr;
+			img.src = URL.createObjectURL(blob);
 			img.style.width = "200px";
 
 			qrResultDiv.appendChild(img);
