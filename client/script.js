@@ -5,7 +5,7 @@ document.getElementById('qr-form').addEventListener('submit', function (e) {
 	const price = document.getElementById('qr-price').value;
 	const data = { id, price }
 
-	fetch('http://localhost:3000/generate-qr', {
+	fetch("https://qr-code-generator-r8kt.onrender.com/generate-qr", {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
