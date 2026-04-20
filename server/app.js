@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 });
 
 // Fallback (important for routing)
-app.get('*', (req, res) => {
+app.get('/:path(*)', (req, res) => {
   res.sendFile(path.join(clientPath, 'index.html'));
 });
 
