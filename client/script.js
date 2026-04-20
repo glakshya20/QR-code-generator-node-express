@@ -9,21 +9,18 @@ document.getElementById('qr-form').addEventListener('submit', function (e) {
 		headers: {
 			'Content-Type': 'application/json',
 		},
-		body: JSON.stringify({ id, price }) // ✅ FIXED
+		body: JSON.stringify({ id, price })
 	})
-		.then(response => response.json())
-        .then(data => {
-	const qrImage = document.createElement('img');
-	qrImage.src = data.qr;
-
-	const qrResultDiv = document.getElementById('qr-result');
-	qrResultDiv.innerHTML = '';
-	qrResultDiv.appendChild(qrImage);
-})
-
+		.then(res => res.json())
+		.then(data => {
 			const qrResultDiv = document.getElementById('qr-result');
 			qrResultDiv.innerHTML = '';
-			qrResultDiv.appendChild(qrImage);
+
+			const img = document.createElement('img');
+			img.src = data.qr;
+			img.style.width = "200px";
+
+			qrResultDiv.appendChild(img);
 		})
-		.catch(error => console.error('Error generating QR code:', error));
+		.catch(err => console.error("Error:", err));
 });
