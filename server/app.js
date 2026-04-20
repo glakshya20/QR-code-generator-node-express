@@ -1,27 +1,33 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');
 const router = require('./routes');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
-app.use(bodyParser.json());
+// Middlewares
+app.use(express.json());
 app.use(cors());
+
+// API routes
 app.use(router);
 
+// Serve frontend
+const clientPath = path.resolve(__dirname, '../client');
+app.use(express.static(clientPath));
 
-
-const path = require('path');
-
-
-app.use(express.static(path.join(__dirname, '../client')));
-
+// Default route
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/index.html'));
+  res.sendFile(path.join(clientPath, 'index.html'));
 });
 
+// Fallback (important for routing)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(clientPath, 'index.html'));
+});
 
-app.listen(port, () => {
-	console.log(`Server listening on port ${port}`);
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
